@@ -1,12 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  closeModal,
-  deleteItem,
-  editItem,
-  valueADD,
-} from "../../../store/action";
+import { closeModal, deleteItem, textInput } from "../../../store/action";
 
 const customStyles = {
   content: {
@@ -23,15 +18,7 @@ const customStyles = {
 export const ToDoListModal = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const {
-    isOpenModal,
-    currentInfo,
-    isDel,
-
-    isEdit,
-    isEditList,
-    list,
-  } = state;
+  const { isOpenModal, currentInfo, isDel, isEdit } = state;
 
   const closeModalFunc = () => {
     dispatch(closeModal());
@@ -41,7 +28,11 @@ export const ToDoListModal = () => {
     dispatch(closeModal());
   };
   const editItemFunc = () => {
-    dispatch(editItem());
+    //dispatch(editItem());
+  };
+  const func5 = (value) => {
+    dispatch(textInput(value));
+    console.log(value);
   };
 
   return (
@@ -51,7 +42,11 @@ export const ToDoListModal = () => {
 
         {isDel ? <p>Du You Want To Delete?{currentInfo}</p> : null}
         {isEdit ? <p>Du You Want To Edit?</p> : null}
-        {isEdit ? <textarea>{currentInfo}</textarea> : null}
+        {isEdit ? (
+          <textarea onChange={(e) => func5(e.target.value)}>
+            {currentInfo}
+          </textarea>
+        ) : null}
 
         {isDel ? (
           <button onClick={() => delItemFunc(currentInfo)}>Yes</button>

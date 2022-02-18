@@ -5,8 +5,8 @@ import {
   DELETE_LIST,
   EDIT_LIST,
   OPEN_MODAL,
+  TEXT_INPUT,
   VALUE_ADD,
-  EDIT_ITEM,
 } from "../action";
 
 const initialState = {
@@ -14,7 +14,7 @@ const initialState = {
   inputValue: "",
   isOpenModal: false,
   currentInfo: "",
-
+  textInput: "",
   isDel: false,
   isEdit: false,
 };
@@ -54,8 +54,8 @@ export const Reducer = (state = initialState, action) => {
       const delClone = JSON.parse(JSON.stringify(list));
       delClone.splice(action.payload, 1);
       return { ...state, list: delClone };
-    case EDIT_ITEM:
-      return { ...state, inputValue: "" };
+    case TEXT_INPUT:
+      return { ...state, textInput: action.payload };
 
     default:
       return state;

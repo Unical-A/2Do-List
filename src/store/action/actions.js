@@ -5,7 +5,7 @@ export const CLOSE_MODAL = "CLOSE_MODAL";
 export const DELETE_LIST = "DELETE_LIST";
 export const EDIT_LIST = "EDIT_LIST";
 export const DELETE_ITEM = "DELETE_ITEM";
-export const EDIT_ITEM = "EDIT_ITEM";
+export const TEXT_INPUT = "TEXT_INPUT";
 
 export const changeInputValue = (payload) => {
   return { type: CHANGE_INPUT_VALUE, payload };
@@ -28,6 +28,6 @@ export const editList = (payload) => {
 export const deleteItem = (payload) => {
   return { type: DELETE_ITEM, payload };
 };
-export const editItem = (payload) => {
-  return { type: EDIT_ITEM, payload };
+export const textInput = (payload) => {
+  return { type: TEXT_INPUT, payload };
 };
