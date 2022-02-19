@@ -30,7 +30,7 @@ export const ToDoListModal = () => {
   const editItemFunc = () => {
     //dispatch(editItem());
   };
-  const func5 = (value) => {
+  const textChangeFunc = (value) => {
     dispatch(textInput(value));
     console.log(value);
   };
@@ -40,10 +40,10 @@ export const ToDoListModal = () => {
       <Modal ariaHideApp={false} isOpen={isOpenModal} style={customStyles}>
         <button onClick={() => closeModalFunc()}>X</button>
 
-        {isDel ? <p>Du You Want To Delete?{currentInfo}</p> : null}
+        {isDel ? <p>Du You Want To Delete? {currentInfo}</p> : null}
         {isEdit ? <p>Du You Want To Edit?</p> : null}
         {isEdit ? (
-          <textarea onChange={(e) => func5(e.target.value)}>
+          <textarea onChange={(e) => textChangeFunc(e.target.value)}>
             {currentInfo}
           </textarea>
         ) : null}
