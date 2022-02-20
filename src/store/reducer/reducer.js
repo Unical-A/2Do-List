@@ -7,6 +7,8 @@ import {
   OPEN_MODAL,
   TEXT_INPUT,
   VALUE_ADD,
+  FUNC_FUNC,
+  SAVE_EDIT_TEXT,
 } from "../action";
 
 const initialState = {
@@ -17,9 +19,11 @@ const initialState = {
   textInput: "",
   isDel: false,
   isEdit: false,
+  isChecked: "",
+  editCurrentIndex: null,
 };
 
-export const Reducer = (state = initialState, action) => {
+export const Reducer = (state = initialState, action, isChecked) => {
   const {
     list,
     inputValue,
@@ -28,6 +32,7 @@ export const Reducer = (state = initialState, action) => {
     isEdit,
     isDel,
     currentItem,
+    textInput,
   } = state;
 
   switch (action.type) {
@@ -43,7 +48,12 @@ export const Reducer = (state = initialState, action) => {
         return { ...state, list: listClone, inputValue: "" };
       }
     case OPEN_MODAL:
-      return { ...state, isOpenModal: true, currentInfo: action.payload };
+      return {
+        ...state,
+        isOpenModal: true,
+        currentInfo: action.payload.item,
+        editCurrentIndex: action.payload.index,
+      };
     case CLOSE_MODAL:
       return { ...state, isOpenModal: false };
     case DELETE_LIST:
@@ -56,6 +66,17 @@ export const Reducer = (state = initialState, action) => {
       return { ...state, list: delClone };
     case TEXT_INPUT:
       return { ...state, textInput: action.payload };
+    case FUNC_FUNC:
+      return { ...state, isChecked: true };
+
+    case SAVE_EDIT_TEXT:
+      const cloneState = JSON.parse(JSON.stringify(state));
+      cloneState.list.splice(
+        cloneState.editCurrentIndex,
+        1,
+        cloneState.textInput
+      );
+      return { ...cloneState, isOpenModal: false };
 
     default:
       return state;
