@@ -5,8 +5,8 @@ export const CLOSE_MODAL = "CLOSE_MODAL";
 export const DELETE_LIST = "DELETE_LIST";
 export const EDIT_LIST = "EDIT_LIST";
 export const DELETE_ITEM = "DELETE_ITEM";
-export const TEXT_INPUT = "TEXT_INPUT";
-export const FUNC_FUNC = "FUNC_FUNC";
+export const EDIT_TEXT_INPUT = "EDIT_TEXT_INPUT";
+export const CHECKED_ITEM = "CHECKED_ITEM";
 export const SAVE_EDIT_TEXT = "SAVE_EDIT_TEXT";
 
 export const changeInputValue = (payload) => {
@@ -30,12 +30,12 @@ export const editList = (payload) => {
 export const deleteItem = (payload) => {
   return { type: DELETE_ITEM, payload };
 };
-export const textInput = (payload) => {
-  return { type: TEXT_INPUT, payload };
+export const editTextInput = (payload) => {
+  return { type: EDIT_TEXT_INPUT, payload };
 };
-export const funcFunc = (payload) => {
-  return { type: FUNC_FUNC, payload };
+export const checkedItem = (payload) => {
+  return { type: CHECKED_ITEM, payload };
 };
-export const saveedittext = (payload) => {
+export const saveEditText = (payload) => {
   return { type: SAVE_EDIT_TEXT, payload };
 };
