@@ -19,12 +19,12 @@ const initialState = {
   textInput: "",
   isDel: false,
   isEdit: false,
-  currentChecked: null,
-  // isChecked: "",
+  isChecked: false,
   editCurrentIndex: null,
+  checkItem: "",
 };
 
-export const Reducer = (state = initialState, action, isChecked) => {
+export const Reducer = (state = initialState, action) => {
   const {
     list,
     inputValue,
@@ -33,8 +33,9 @@ export const Reducer = (state = initialState, action, isChecked) => {
     isEdit,
     isDel,
     currentItem,
+    isChecked,
     textInput,
-    currentChecked,
+    checkItem,
   } = state;
 
   switch (action.type) {
@@ -69,8 +70,23 @@ export const Reducer = (state = initialState, action, isChecked) => {
     case EDIT_TEXT_INPUT:
       return { ...state, textInput: action.payload };
     case CHECKED_ITEM:
-      console.log(currentChecked);
-      return { ...state, currentChecked: action.payload.index };
+      console.log(state);
+      if (isChecked === false) {
+        return {
+          ...state,
+          checkItem: action.payload,
+
+          isChecked: true,
+        };
+      } else if (isChecked === true) {
+        return {
+          ...state,
+
+          isChecked: false,
+
+          checkItem: action.payload,
+        };
+      }
 
     case SAVE_EDIT_TEXT:
       const cloneState = JSON.parse(JSON.stringify(state));
