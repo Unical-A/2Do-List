@@ -5,19 +5,32 @@ import { changeInputValue, valueADD } from "../../../store/action";
 export const ToDoListHeader = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { inputValue } = state;
+  const { text, list, inputValue } = state;
 
   const inputFunc = (value) => {
     dispatch(changeInputValue(value));
   };
+
   const addFunc = () => {
-    dispatch(valueADD());
+    const inputValue = {
+      text,
+      isChecked: false,
+      id: Math.random(),
+    };
+    if (text === "") {
+      alert("Please Write Text");
+      return { ...state };
+    } else {
+      const listClone = JSON.parse(JSON.stringify(list));
+      listClone.push(inputValue);
+      dispatch(valueADD(listClone));
+    }
   };
   return (
     <div>
       <input
         type="text"
-        value={inputValue}
+        value={text}
         onChange={(e) => inputFunc(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && addFunc()}
       />

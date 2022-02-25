@@ -51,8 +51,8 @@ export const ToDoListModal = () => {
       <Modal ariaHideApp={false} isOpen={isOpenModal} style={customStyles}>
         <button onClick={() => closeModalFunc()}>X</button>
 
-        {isDel ? <p>Du You Want To Delete?</p> : null}
-        {isEdit ? <p>Du You Want To Edit? </p> : null}
+        {isDel ? <p>Du You Want To Delete? {editCurrentIndex}</p> : null}
+        {isEdit ? <p>Du You Want To Edit? {currentInfo}</p> : null}
         {isEdit ? (
           <textarea
             defaultValue={currentInfo}

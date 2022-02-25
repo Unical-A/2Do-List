@@ -13,7 +13,7 @@ import { log } from "react-modal/lib/helpers/bodyTrap";
 export const ToDoListBody = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { list, isOpenModal, isDel, isEdit, currentInfo, isChecked } = state;
+  const { list, text, isCompleted } = state;
 
   const delModalFunc = (payload) => {
     dispatch(openModal(payload));
@@ -24,8 +24,11 @@ export const ToDoListBody = () => {
     dispatch(editList());
   };
 
-  const func444 = (payload) => {
-    dispatch(checkedItem(payload));
+  const func444 = (value, index) => {
+    const item = list[index];
+    item.isCompleted = value;
+    dispatch(checkedItem(list));
+    console.log();
   };
 
   return (
@@ -35,18 +38,20 @@ export const ToDoListBody = () => {
           <div>
             <span>{index + 1}</span>
 
-            <input type="checkbox" onChange={() => func444({ index, item })} />
+            <input
+              type="checkbox"
+              onClick={(e) => func444(e.target.checked, index)}
+            />
           </div>
-
-          {!isChecked ? (
-            <p>{item}</p>
-          ) : (
+          {item.isCompleted ? (
             <del>
-              <p>{item}</p>
+              <p>{item.text}</p>
             </del>
+          ) : (
+            <p>{item.text}</p>
           )}
           <div>
-            <span onClick={() => delModalFunc({ index })}>del </span>
+            <span onClick={() => delModalFunc({ item, index })}>del </span>
             <span onClick={() => editModalFunc({ item, index })}> edit</span>
           </div>
         </Styled.Root>
