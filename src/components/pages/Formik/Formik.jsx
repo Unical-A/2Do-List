@@ -34,7 +34,7 @@ export const InviteFriends = () => {
                           <label htmlFor={`friends.${index}.name`}>Name</label>
                           <Field
                             name={`friends.${index}.name`}
-                            placeholder="Jane Doe"
+                            placeholder="Enter Name:"
                             type="text"
                           />
                           <ErrorMessage
@@ -49,7 +49,7 @@ export const InviteFriends = () => {
                           </label>
                           <Field
                             name={`friends.${index}.email`}
-                            placeholder="jane@acme.com"
+                            placeholder="Enter Email:"
                             type="email"
                           />
                           <ErrorMessage

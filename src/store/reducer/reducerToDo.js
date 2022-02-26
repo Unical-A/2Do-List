@@ -27,7 +27,7 @@ const initialState = {
   counter: 0,
 };
 
-export const Reducer = (state = initialState, action) => {
+export const ReducerToDo = (state = initialState, action) => {
   const {
     list,
     inputValue,
