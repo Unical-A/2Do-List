@@ -9,6 +9,7 @@ import {
   VALUE_ADD,
   SAVE_EDIT_TEXT,
   CHECKED_ITEM,
+  CHANGE_NUM,
 } from "../action";
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
   checkItem: "",
   inputValue: "",
   isCompleted: false,
+  counter: 0,
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -38,6 +40,7 @@ export const Reducer = (state = initialState, action) => {
     textInput,
     checkItem,
     text,
+    counter,
   } = state;
 
   switch (action.type) {
@@ -87,6 +90,13 @@ export const Reducer = (state = initialState, action) => {
       }
 
       return { ...cloneState, textInput: action.payload, isOpenModal: false };
+
+    case CHANGE_NUM:
+      if (action.payload === "+") {
+        return { ...state, counter: counter + 1 };
+      } else if (action.payload === "-") {
+        return { ...state, counter: counter - 1 };
+      }
 
     default:
       return state;

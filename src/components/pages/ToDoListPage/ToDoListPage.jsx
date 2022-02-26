@@ -3,6 +3,8 @@ import ToDoListFooter from "./ToDoListFooter";
 import ToDoListHeader from "./ToDoListHeader";
 import { useHistory } from "react-router";
 import { ToDoListModal } from "./ToDoListModal";
+import { InviteFriends } from "../Formik/Formik";
+import { Counter } from "../../counter/Counter";
 
 export const ToDoListPage = () => {
   const history = useHistory();
