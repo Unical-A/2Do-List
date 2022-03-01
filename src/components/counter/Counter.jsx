@@ -13,7 +13,7 @@ export const Counter = () => {
 
   return (
     <div>
-      <input value={counter} type="number" />
+      <h1>{counter}</h1>
       <div>
         <button onClick={() => Func("+")}>+</button>
         <button onClick={() => Func("-")}>-</button>
