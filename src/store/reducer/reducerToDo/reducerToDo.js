@@ -10,7 +10,7 @@ import {
   SAVE_EDIT_TEXT,
   CHECKED_ITEM,
   CHANGE_NUM,
-} from "../action";
+} from "../../actions/actionsToDo";
 
 const initialState = {
   list: [],

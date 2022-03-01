@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeNum } from "../../store/action";
+import { changeNum } from "../../store/actions/actionsCounter";
 
 export const Counter = () => {
   const dispatch = useDispatch();

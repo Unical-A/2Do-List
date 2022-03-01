@@ -6,7 +6,7 @@ import {
   deleteItem,
   editTextInput,
   saveEditText,
-} from "../../../store/action";
+} from "../../../store/actions/actionsToDo";
 
 const customStyles = {
   content: {

@@ -1,4 +1,4 @@
-import { CHANGE_NUM } from "../action";
+import { CHANGE_NUM } from "../actions";
 
 const initialState = {
   counter: 0,

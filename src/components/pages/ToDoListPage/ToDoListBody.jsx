@@ -6,7 +6,7 @@ import {
   editList,
   openModal,
   checkedItem,
-} from "../../../store/action";
+} from "../../../store/actions/actionsToDo";
 
 import { log } from "react-modal/lib/helpers/bodyTrap";
 
