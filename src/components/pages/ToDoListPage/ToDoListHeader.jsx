@@ -4,8 +4,8 @@ import { changeInputValue, valueADD } from "../../../store/actions/actionsToDo";
 
 export const ToDoListHeader = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  const { text, list, inputValue } = state;
+  const { ReducerToDo } = useSelector((state) => state);
+  const { text, list, inputValue } = ReducerToDo;
 
   const inputFunc = (value) => {
     dispatch(changeInputValue(value));
@@ -19,7 +19,7 @@ export const ToDoListHeader = () => {
     };
     if (text === "") {
       alert("Please Write Text");
-      return { ...state };
+      return { ...ReducerToDo };
     } else {
       const listClone = JSON.parse(JSON.stringify(list));
       listClone.push(inputValue);

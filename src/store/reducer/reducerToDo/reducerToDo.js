@@ -68,35 +68,27 @@ export const ReducerToDo = (state = initialState, action) => {
         isDel: false,
       };
     case DELETE_ITEM:
-      const delClone = JSON.parse(JSON.stringify(list));
-      delClone.splice(action.payload, 1);
-      return { ...state, list: delClone };
+      const delClone = JSON.parse(JSON.stringify(state));
+
+      delClone.list.splice(action.payload, 1);
+
+      return { ...state, list: delClone.list };
     case EDIT_TEXT_INPUT:
       return { ...state, textInput: action.payload };
+
     case CHECKED_ITEM:
-      console.log(list);
       return { ...state, list: action.payload };
 
     case SAVE_EDIT_TEXT:
       const cloneState = JSON.parse(JSON.stringify(state));
+      const { list, editCurrentIndex, textInput } = cloneState;
       if (textInput === "") {
         return { ...cloneState, isOpenModal: false };
       } else {
-        cloneState.list.splice(
-          cloneState.editCurrentIndex,
-          1,
-          cloneState.textInput
-        );
+        list[editCurrentIndex].text = textInput;
       }
 
-      return { ...cloneState, textInput: action.payload, isOpenModal: false };
-
-    case CHANGE_NUM:
-      if (action.payload === "+") {
-        return { ...state, counter: counter + 1 };
-      } else if (action.payload === "-") {
-        return { ...state, counter: counter - 1 };
-      }
+      return { ...cloneState, textInput: "", isOpenModal: false };
 
     default:
       return state;

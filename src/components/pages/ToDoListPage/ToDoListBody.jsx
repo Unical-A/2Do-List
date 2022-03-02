@@ -12,8 +12,8 @@ import { log } from "react-modal/lib/helpers/bodyTrap";
 
 export const ToDoListBody = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  const { list, text, isCompleted } = state;
+  const { ReducerToDo } = useSelector((state) => state);
+  const { list, text, isCompleted } = ReducerToDo;
 
   const delModalFunc = (payload) => {
     dispatch(openModal(payload));

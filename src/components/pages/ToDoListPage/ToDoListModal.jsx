@@ -22,7 +22,7 @@ const customStyles = {
 
 export const ToDoListModal = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  const { ReducerToDo } = useSelector((state) => state);
   const {
     isOpenModal,
     currentInfo,
@@ -30,14 +30,14 @@ export const ToDoListModal = () => {
     isEdit,
     textInput,
     editCurrentIndex,
-  } = state;
+  } = ReducerToDo;
 
   const closeModalFunc = () => {
     dispatch(closeModal());
   };
   const delItemFunc = (payload) => {
-    dispatch(deleteItem(payload));
     dispatch(closeModal());
+    dispatch(deleteItem(payload));
   };
   const editItemFunc = () => {
     dispatch(saveEditText());

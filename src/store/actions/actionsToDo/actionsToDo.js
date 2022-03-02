@@ -40,6 +40,3 @@ export const checkedItem = (payload) => {
 export const saveEditText = (payload) => {
   return { type: SAVE_EDIT_TEXT, payload };
 };
-export const changeNum = (payload) => {
-  return { type: CHANGE_NUM, payload };
-};

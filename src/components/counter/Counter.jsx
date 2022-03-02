@@ -4,8 +4,8 @@ import { changeNum } from "../../store/actions/actionsCounter";
 
 export const Counter = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  const { counter } = state;
+  const { ReducerCounter } = useSelector((state) => state);
+  const { counter } = ReducerCounter;
 
   const Func = (payload) => {
     dispatch(changeNum(payload));
