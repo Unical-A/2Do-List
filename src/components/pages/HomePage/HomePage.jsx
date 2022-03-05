@@ -11,6 +11,9 @@ export const HomePage = () => {
   const counter = (value) => {
     history.push(value);
   };
+  const axios = (value) => {
+    history.push(value);
+  };
 
   return (
     <div>
@@ -26,6 +29,9 @@ export const HomePage = () => {
       </h2>
       <h2 onClick={() => counter("/Counter")} style={{ cursor: "pointer" }}>
         Counter
+      </h2>
+      <h2 onClick={() => axios("/Axios")} style={{ cursor: "pointer" }}>
+        Axios
       </h2>
     </div>
   );

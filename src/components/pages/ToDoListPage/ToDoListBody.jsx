@@ -44,11 +44,13 @@ export const ToDoListBody = () => {
             />
           </div>
           {item.isCompleted ? (
-            <del>
-              <p>{item.text}</p>
-            </del>
+            <mark>
+              <del>
+                <Styled.ITEM>{item.text}</Styled.ITEM>
+              </del>
+            </mark>
           ) : (
-            <p>{item.text}</p>
+            <Styled.ITEM>{item.text}</Styled.ITEM>
           )}
           <div>
             <span onClick={() => delModalFunc({ item, index })}>del </span>

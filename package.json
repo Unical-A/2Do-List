@@ -5,6 +5,7 @@
       "not dead",
       "not op_mini all"
     ],
+
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -16,9 +17,16 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/styled-components": "^5.1.22",
+    "axios": "^0.26.0",
     "baseui": "^10.9.0",
     "combine-reducers": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
     "formik": "^2.2.9",
+    "http": "^0.0.1-security",
+    "http-server": "^14.1.0",
+    "node-pid-controller": "^1.0.1",
+    "postman-request": "^2.88.1-postman.31",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.4",
@@ -28,6 +36,7 @@
     "react-scripts": "5.0.0",
     "react-toggle": "^4.1.2",
     "redux": "^4.1.2",
+
     "styled-components": "^5.3.3",
     "toggle-button": "^1.0.1",
     "usestate": "^1.1.3",
@@ -45,7 +54,8 @@
   "name": "todolist-app",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+"start": "react-scripts start",
+    "dev": "node ace server --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

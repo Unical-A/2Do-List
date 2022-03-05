@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { ToDoListModal } from "./ToDoListModal";
 import { InviteFriends } from "../Formik/Formik";
 import { Counter } from "../../counter/Counter";
+import { Axios } from "../../axios";
 
 export const ToDoListPage = () => {
   const history = useHistory();
@@ -15,10 +16,7 @@ export const ToDoListPage = () => {
   return (
     <div>
       <div>
-        <p>This is ToDoListPage</p>
-        <p onClick={() => goToHomePage("/")} style={{ cursor: "pointer" }}>
-          GO TO HomePage
-        </p>
+        <h1>ToDoList</h1>
       </div>
       <div>
         <ToDoListHeader />
@@ -26,6 +24,9 @@ export const ToDoListPage = () => {
         <ToDoListFooter />
         <ToDoListModal />
       </div>
+      <h2 onClick={() => goToHomePage("/")} style={{ cursor: "pointer" }}>
+        TO Home
+      </h2>
     </div>
   );
 };

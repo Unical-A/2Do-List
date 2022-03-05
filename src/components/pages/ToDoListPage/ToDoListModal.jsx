@@ -40,7 +40,11 @@ export const ToDoListModal = () => {
     dispatch(deleteItem(payload));
   };
   const editItemFunc = () => {
-    dispatch(saveEditText());
+    if (textInput === "") {
+      alert("not change");
+    } else {
+      dispatch(saveEditText());
+    }
   };
   const textChangeFunc = (payload) => {
     dispatch(editTextInput(payload));

@@ -1,7 +1,8 @@
 import { HomePage } from "../components/pages/HomePage";
 import { ToDoListPage } from "../components/pages/ToDoListPage/ToDoListPage";
 import { Formik, InviteFriends } from "../components/pages/Formik/Formik";
-import { Counter } from "../components/counter/Counter";
+import { Counter } from "../components/counter";
+import { Axios } from "../components/axios";
 
 export const routes = [
   {
@@ -23,5 +24,10 @@ export const routes = [
     path: "/counter",
     exact: true,
     page: () => <Counter />,
+  },
+  {
+    path: "/axios",
+    exact: true,
+    page: () => <Axios />,
   },
 ];
