@@ -1,5 +1,5 @@
-export const CHANGE_NUM = "CHANGE_NUM";
+export const CHANGE_NUM_A = "CHANGE_NUM_A";
 
-export const changeNum = (payload) => {
-  return { type: CHANGE_NUM, payload };
+export const changeNumA = (payload) => {
+  return { type: CHANGE_NUM_A, payload };
 };

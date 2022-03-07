@@ -8,7 +8,6 @@ export const DELETE_ITEM = "DELETE_ITEM";
 export const EDIT_TEXT_INPUT = "EDIT_TEXT_INPUT";
 export const CHECKED_ITEM = "CHECKED_ITEM";
 export const SAVE_EDIT_TEXT = "SAVE_EDIT_TEXT";
-export const CHANGE_NUM = "CHANGE_NUM";
 
 export const changeInputValue = (payload) => {
   return { type: CHANGE_INPUT_VALUE, payload };

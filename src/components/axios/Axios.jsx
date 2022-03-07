@@ -13,7 +13,7 @@ export const Axios = () => {
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((res) => setState(res.data));
   }, []);
-  console.log(axios.get);
+
   return (
     <div>
       <h1 onClick={() => history.push("/")} style={{ cursor: "pointer" }}>
@@ -41,4 +41,3 @@ export const Axios = () => {
     </div>
   );
 };
-export default Axios;
